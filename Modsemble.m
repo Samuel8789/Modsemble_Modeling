@@ -32,13 +32,13 @@ addpath(fullfile(basepath,'thirdparty','glmnet_matlab','glmnet_matlab'))
 
 % SOURCE FUNCTIONS
 
-addpath(fullfile(basepath,'src'))
-addpath(fullfile(basepath,'src','ANALYSIS'))
-addpath(fullfile(basepath,'src','FRAMEWORK'))
-addpath(fullfile(basepath,'src','MLE_STRUC'))
-addpath(fullfile(basepath,'src','include'))
-addpath(fullfile(basepath,'src', 'OPTIMIZATION'))
-addpath(fullfile(basepath,'src','STRUCTURE'))
+addpath(fullfile(basepath,'src_fun'))
+addpath(fullfile(basepath,'src_fun','ANALYSIS'))
+addpath(fullfile(basepath,'src_fun','FRAMEWORK'))
+addpath(fullfile(basepath,'src_fun','MLE_STRUC'))
+addpath(fullfile(basepath,'src_fun','include'))
+addpath(fullfile(basepath,'src_fun', 'OPTIMIZATION'))
+addpath(fullfile(basepath,'src_fun','STRUCTURE'))
 
 
 
@@ -73,6 +73,18 @@ addpath(temp_folder);
 %MUST CHANGE MANUALLY
 %load parameter structure
 load('parameters.mat');
+
+%insert data
+params.poolsize = poolsize;
+params.compute_true_logZ = logical(params.compute_true_logZ);
+params.data = data;
+params.UDF = UDF;
+params.coords = coords;
+params.name = name;
+params.data_directory = data_directory;
+params.Filename = filename;
+params.source_directory = source_directory;
+params.exptdir=exptdir;
 
 %% CONDITIONAL RANDOM FIELD MODELING
 
