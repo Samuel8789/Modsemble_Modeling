@@ -1,4 +1,4 @@
-function [PCNs,PAPS_INDEXED] = PAPS(best_model,results,params)
+function [PCNs,PAPS_INDEXED] = PAPS(best_model,results,params,p)
 % FIRST INITIALIZE PARAMETERS AND COUNTS
 data=params.data;
 UDF=params.UDF;
@@ -6,6 +6,7 @@ num_neur = size(data,2);
 num_ens = size(UDF,2);
 ens = results.core_crf;
 ENS_STATE = cell(1,num_ens);
+
 node_str=results.epsum(1:num_neur);
 degrees = sum(best_model.structure(1:num_neur,1:num_neur));
 auc=results.auc(1:num_neur,:);
@@ -112,9 +113,9 @@ for i = 1:num_ens
 end
 
 %Now Select Only The TOP 20th percentile of each ensemble
-PCNs = cell(1,num_ens)
+PCNs = cell(1,num_ens);
 for i = 1:num_ens
-    [V,idx] = maxk(PAPS_INDEXED{2,i},ceil(0.2*size_ens{i}));
+    [V,idx] = maxk(PAPS_INDEXED{2,i},ceil(p*size_ens{i}));
     PCNs{i} = transpose(PAPS_INDEXED{1,i}(idx));
 end
 
