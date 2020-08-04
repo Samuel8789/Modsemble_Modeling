@@ -20,29 +20,29 @@
 
 
 %% FUNCTION
-function [graph_structure] = learn_structures(x_train,selection,variable_groups, GLM_array, UDF_Count)
+function [graph_structure] = learn_structures(params,s_lambda)
    
 %Generate Structures
 
 %This can also be used to ESTIMATE new lambdas(though not currently implemented to take advantage of such)
 
 %We do this to account for non-connected stimuli nodes
-All_Nodes = size(x_train,2);
-node_count=All_Nodes;
+
+node_count=size(params.x_train,2);
 
 
-coefficients = zeros(All_Nodes);
+coefficients = zeros(node_count);
 
 
-   for label_node = 1:All_Nodes
-        feature_nodes = variable_groups{label_node};
-        Coef = cvglmnetCoef(GLM_array{label_node},selection);
-        if length(Coef) < All_Nodes
-            Coef = [Coef; zeros(UDF_Count-1,1)];
-            feature_nodes = [1:All_Nodes];
+   for label_node = 1:node_count
+        feature_nodes = params.variable_groups{label_node};
+        Coef = cvglmnetCoef(params.GLM_array{label_node},s_lambda);
+        if length(Coef) < node_count
+            Coef = [Coef; zeros(params.UDF_Count-1,1)];
+            feature_nodes = [1:node_count];
             feature_nodes ( label_node ) = [];
         end
-        Coef = Coef(2:All_Nodes);
+        Coef = Coef(2:node_count);
         coefficients(label_node,feature_nodes) = Coef';
    end
    
@@ -79,11 +79,11 @@ coefficients = zeros(All_Nodes);
 %%
     % numeric graph structure
     numeric_graph_structure = (coefficients + coefficients');
-    if iscell(variable_groups)
+    if iscell(params.variable_groups)
         % Convert variable_groups to logical matrix
         eligible_edges = zeros(node_count, node_count);
         for ii = 1:node_count
-            eligible_edges(ii, variable_groups{ii}) = 1;
+            eligible_edges(ii, params.variable_groups{ii}) = 1;
         end
         eligible_edges = logical(eligible_edges);
         assert(all(all(eligible_edges == eligible_edges')), ...

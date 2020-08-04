@@ -12,9 +12,10 @@ function [best_model_index] = get_best_model(model_collection)
                 i=i+1;
             end
             %difference in prediction
-            LL_diff = abs(trnb-ttb);
+            %LL_diff = abs(trnb-ttb);
             %min-max normalized (LL_diff max-min normalized)
-            LL = (trnb-min(trnb))/(max(trnb)-min(trnb)).*(3/6)+(ttb-min(ttb))/(max(ttb)-min(ttb)).*(2/6)+(LL_diff-max(LL_diff))/(min(LL_diff)-max(LL_diff)).*(1/6);
+            %LL = (trnb-min(trnb))/(max(trnb)-min(trnb)).*(3/6)+(ttb-min(ttb))/(max(ttb)-min(ttb)).*(2/6)+(LL_diff-max(LL_diff))/(min(LL_diff)-max(LL_diff)).*(1/6);
+            LL = trnb+ttb;
             
             [M,best_model_index] = max(LL);
             
