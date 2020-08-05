@@ -44,10 +44,7 @@ source_directory = strcat(source_directory, '/');
 
 %Create Results Folders
 exptdir = strcat(source_directory, 'expt', '/', name);
-temp_folder = strcat(source_directory, 'expt', '/', name, '/tmp');
-mkdir(temp_folder);
 addpath(exptdir);
-addpath(temp_folder);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%INITIALIZE PARAMETERS%%%%%%%%%%%%%%%%%%%%%%%%%
