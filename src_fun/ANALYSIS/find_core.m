@@ -41,6 +41,7 @@ end
 
 	fprintf('\n')
 	fprintf('Now Predicting Each Neuron in Turn')
+    fprintf('\n')
     % predict each neuron in turn
     LL_frame = zeros(num_node,num_frame,2);
     for ii = 1:num_node
@@ -58,6 +59,7 @@ end
 
 	fprintf('\n')
 	fprintf('Now Calculating AUC')
+    fprintf('\n')
     % calculate AUC
     true_label = UDF';
     auc = zeros(num_node,num_stim);
@@ -68,6 +70,9 @@ end
 	fprintf('\n')
 	fprintf(strcat(num2str(ii),' Ensembles Completed'))
     end
+    
+    fprintf('\n')
+    fprintf('\n')
     
         for ii = 1:num_stim
         %size_ens = sum(best_model.structure(num_node-num_stim+ii,:));
@@ -86,6 +91,10 @@ end
 	fprintf('\n')
 	fprintf(strcat(num2str(ii),' Random Ensembles Completed'))
         end
+        
+        fprintf('\n')
+        fprintf('\n')
+        
             %% Convert nodes to neurons
     ens_nodes = cell(num_stim, 1);
     for ii = 1:num_stim

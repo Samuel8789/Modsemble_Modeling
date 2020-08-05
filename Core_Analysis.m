@@ -29,10 +29,18 @@ load(strcat(d,'/','best_model.mat'));
 
 %Analysis for Core neurons//Pattern Completers
 [~, results] = find_core(best_model,params.data,params.UDF);
+
+fprintf('Finding Pattern Completers')
+fprintf('\n')
+
 [PCNs, PAPS_INDEXED] = PAPS_score(best_model,results,params);
 results.PCNs = PCNs;
 results.PAPS_INDEXED = PAPS_INDEXED;
 save(strcat(d,'/','results.mat'));
+
+fprintf('\n')
+fprintf('Core Analysis Completed')
+fprintf('\n')
 
 %temporary
 

@@ -4,9 +4,11 @@ variable_groups=params.variable_groups;
 options = params.LASSO_options;
 node_count = size(x_train,2);
    
-
+fprintf('\n')
 fprintf('Now Learning Structures')
-fprintf('\n');
+fprintf('\n')
+fprintf('\n')
+
 GLM_array = cell(node_count,1);
     
 for label_node = 1:node_count

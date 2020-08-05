@@ -20,6 +20,4 @@ done
 
 echo
 
-echo "Core analysis completed"
-
 exit

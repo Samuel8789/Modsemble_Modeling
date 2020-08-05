@@ -25,11 +25,13 @@ for i = 1:params.num_structures
 end
 
 %feedback
+fprintf('\n')
 fprintf(strcat(num2str(params.num_structures),' Structures Formed'))
 fprintf('\n');
 
 [models] = pre_allocate_models(params);
 fprintf(strcat(num2str(numel(models)), ' Models Pre-Allocated for Parameter Estimation'))
+fprintf('\n')
 fprintf('\n')
 
 save(strcat(params.exptdir, '/', 'structures.mat'), 'models');
