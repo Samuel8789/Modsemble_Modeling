@@ -169,6 +169,7 @@ classdef LoopyModelCollection
                     self.models{i} = model;
                 end
             end
+	    fprintf('\n')
             fprintf('Finished estimating parameters.\n');
 
          end

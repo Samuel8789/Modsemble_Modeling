@@ -4,6 +4,7 @@ model_collection = LoopyModelCollection(models,params);
 %Clean-up memory
 clear models
 
+
 fprintf('Parameter Estimation...\n');
 %Parameter Estimation
         model_collection = model_collection.do_parameter_estimation(...

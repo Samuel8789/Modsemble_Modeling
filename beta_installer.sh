@@ -12,6 +12,10 @@ echo "Designated MATLAB MEX Directory"
 
 make
 
+echo "Installing Terminal Multiplexer (TMUX)"
+
+sudo apt install tmux
+
 echo "Installation Complete"
 
 

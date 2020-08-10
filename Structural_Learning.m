@@ -37,3 +37,7 @@ fprintf('\n')
 save(strcat(params.exptdir, '/', 'structures.mat'), 'models');
 save(strcat(params.exptdir, '/', 'model_parameters.mat'),'params');
 save('parameters.mat','params');
+
+if params.multicore==1
+    Distribute_Model_Pools(params,models);
+end

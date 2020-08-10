@@ -4,8 +4,6 @@ function [basepath,params] = startup1();
 %%%%%%%%%%%%%%%%%%%%%%%%%%%ESTABLISH PATHS%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-poolsize=50;
-
 basepath = pwd;
 
 % THIRDPARTY DEPENDENCIES
@@ -44,7 +42,11 @@ source_directory = strcat(source_directory, '/');
 
 %Create Results Folders
 exptdir = strcat(source_directory, 'expt', '/', name);
+mkdir(exptdir);
 addpath(exptdir);
+tempdir = strcat(exptdir,'/tmp');
+mkdir(tempdir);
+addpath(tempdir);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%INITIALIZE PARAMETERS%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -55,7 +57,7 @@ addpath(exptdir);
 load('parameters.mat');
 
 %insert data
-params.poolsize = poolsize;
+params.poolsize = 8;
 params.compute_true_logZ = logical(params.compute_true_logZ);
 params.data = data;
 params.UDF = UDF;
