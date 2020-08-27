@@ -14,7 +14,7 @@ make
 
 echo "Installing Terminal Multiplexer (TMUX)"
 
-yum install tmux
+sudo yum install tmux
 
 echo "Installation Complete"
 
