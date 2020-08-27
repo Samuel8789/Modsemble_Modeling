@@ -1,8 +1,3 @@
-
-cd ~/Modsemble_Modeling/thirdparty/glmnet_matlab/glmnet_matlab
-
-mex FFLAGS='-fdefault-real-8 -ffixed-form' glmnetMex.F GLMnet.f
-
 cd ~/Modsemble_Modeling/thirdparty/QPBO-v1.32.src
 
 fileID = fopen('Makefile','r');
