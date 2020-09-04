@@ -20,7 +20,8 @@ addpath(fullfile(basepath,'src_fun','MLE_STRUC'))
 addpath(fullfile(basepath,'src_fun','include'))
 addpath(fullfile(basepath,'src_fun','STRUCTURE'))
 
-d = uigetdir(pwd,'Select Data Folder');
+%d = uigetdir(pwd,'Select Data Folder');
+d=strcat(pwd,'/expt/darik_demo')
 addpath(d);
 
 load(strcat(d,'/','model_parameters.mat'));
