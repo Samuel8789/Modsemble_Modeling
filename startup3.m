@@ -71,6 +71,7 @@ params.data_directory = data_directory;
 params.Filename = filename;
 params.source_directory = source_directory;
 params.exptdir=exptdir;
+params.multicore = 0;
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

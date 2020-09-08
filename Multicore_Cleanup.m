@@ -31,10 +31,15 @@ params.tmp_dir=tmp_dir;
 
 [model_collection] = multicore_merge(params);
 
-save(strcat(params.exptdir, '/', 'model_collection.mat'), 'model_collection');
 
 [best_model_index] = get_best_model(model_collection);
 
 [best_model] = SingleLoopyModel(model_collection, best_model_index);
+
+%Convert to Structures
+model_collection = struct(model_collection);
+best_model=struct(best_model);
+
+save(strcat(params.exptdir, '/', 'model_collection.mat'), 'model_collection');
 
 save(strcat(params.exptdir, '/', 'best_model.mat'), 'best_model');
