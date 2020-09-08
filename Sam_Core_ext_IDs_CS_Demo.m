@@ -21,7 +21,8 @@ addpath(fullfile(basepath,'src_fun','MLE_STRUC'))
 addpath(fullfile(basepath,'src_fun','include'))
 addpath(fullfile(basepath,'src_fun','STRUCTURE'))
 
-d = uigetdir(pwd,'Select Data Folder');
+% d = uigetdir(pwd,'Select Data Folder');
+d='/home/sp3660/Modsemble_Modeling/expt/darik_demo';
 addpath(d);
 
 load(strcat(d,'/','model_parameters.mat'));
@@ -31,7 +32,7 @@ load(strcat(d,'/','best_model.mat'));
 
 %Analysis for Core neurons//Pattern Completers
 
-[ext_IDs] = find_IDs(data)
+[ext_IDs] = find_IDs(params.data)
 UDF = ext_IDs;
 
 [~, results] = find_core_ext_IDs(best_model,params.data,UDF);

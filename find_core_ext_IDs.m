@@ -16,7 +16,7 @@ if nargin <4
     num_controls = 100;
 end
 
-    %[num_frame, num_stim] = size(UDF);
+    [num_frame, num_stim] = size(UDF);
     %if all(all(data(:, end-num_stim+1:end) == UDF))
      %   warning('Last %d neurons in data perfectly match stimuli. Be sure data contains only neuron recordings.', ...
       %          num_stim)
