@@ -31,7 +31,7 @@ load(strcat(d,'/','best_model.mat'));
 
 %Analysis for Core neurons//Pattern Completers
 
-[ext_IDs] = find_IDs(data)
+[ext_IDs] = find_IDs(params.data)
 UDF = ext_IDs;
 
 [~, results] = find_core_ext_IDs(best_model,params.data,UDF);
