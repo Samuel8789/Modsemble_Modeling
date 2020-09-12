@@ -29,7 +29,7 @@ addpath(fullfile(basepath,'src_fun','STRUCTURE'))
 
 %Select File
 %filename = uigetfile('*.mat','Select Data File');
-filename = 'darik_demo.mat';
+filename = 'Test.mat';
 load(filename);
 [pathstr,name,ext] = fileparts(filename);
 

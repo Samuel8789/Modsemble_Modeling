@@ -62,9 +62,10 @@ DELTA_ENS_SUM = cell(1,num_ens);
 DELTA_U_SUM=cell(1,num_ens);
 for i = 1:num_ens
     %for ii = 1:num_neur
-    DELTA_U_SUM{i} = sum(DELTA_U{i});
+    DELTA_U_SUM{i} = sum(DELTA_U{i},1);
     DELTA_ENS{i} = DELTA_U{i}(:,[ENS_STATE{i}]);
-    DELTA_ENS_SUM{i}=sum(DELTA_ENS{i});
+    DELTA_ENS_SUM{i}=sum(DELTA_ENS{i},1);
+
 end
 
 DEMA = []; %Max Ei
